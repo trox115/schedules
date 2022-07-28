@@ -1,0 +1,18 @@
+@import "../../styles/colors";
+@import "../../styles/variables";
+
+.button {
+  width: calc(50% - 32px);
+  background: none;
+  color: white;
+  border: 3px solid $green2;
+  border-radius: 16px;
+  height: 41px;
+  font: $titleFont;
+  font-weight: 700;
+  font-size: 20px;
+
+  &--selected {
+    background-image: linear-gradient(to bottom right, $lightGreen, $darkGreen);
+  }
+}

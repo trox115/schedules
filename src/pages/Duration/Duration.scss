@@ -1,0 +1,9 @@
+.duration {
+  &__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+    margin-top: 56px;
+  }
+}
