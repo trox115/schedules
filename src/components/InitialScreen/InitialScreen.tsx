@@ -5,7 +5,7 @@ import './InitialScreen.scss';
 import AppContext from '../../Context/App.context';
 
 function InitialScreen() {
-  const { setEntered } = useContext(AppContext);
+  const { setEntered, setCurrentStep } = useContext(AppContext);
 
   return (
     <div className='initial'>

@@ -8,12 +8,17 @@ import Duration from './pages/Duration/Duration';
 function App() {
   const [entered, setEntered] = useState(false);
   const [duration, setDuration] = useState(0);
+  const [currentStep, setCurrentStep] = useState(0);
+  const totalSteps = 4;
 
   const context = {
     entered,
     setEntered,
     duration,
-    setDuration
+    setDuration,
+    totalSteps,
+    currentStep,
+    setCurrentStep
   }
 
   return (

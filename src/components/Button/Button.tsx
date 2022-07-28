@@ -5,13 +5,14 @@ import './Button.scss';
 interface ButtonProps { 
   text: string,
   selected: boolean
-  onClick: (e:any) => void
+  onClick: (e:any) => void,
+  value: number
 }
 
-function Button({ text, selected, onClick }: ButtonProps) {
+function Button({ text, selected, onClick, value }: ButtonProps) {
 
   return (
-      <button className={!selected ? 'button' : 'button button--selected'} onClick={ onClick }>{ text }</button>
+      <button className={!selected ? 'button' : 'button button--selected'} value={ value } onClick={ onClick }>{ text }</button>
     )
 }
 
