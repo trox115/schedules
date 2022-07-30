@@ -1,0 +1,17 @@
+@import "../../styles/colors";
+@import "../../styles/variables";
+
+.step-bar {
+  width: calc(100% - 48px);
+  background: $grey2;
+  height: 8px;
+  border-radius: 18px;
+  margin: 48px auto;
+
+  &__done {
+    height: 8px;
+    border-radius: 18px;
+    background-color: $blue;
+    transition: width 2s;
+  }
+}

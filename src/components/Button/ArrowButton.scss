@@ -1,0 +1,25 @@
+@import "../../styles/colors";
+@import "../../styles/variables";
+
+.arrow-button {
+  position: absolute;
+  background: none;
+  width: 74px;
+  height: 41px;
+  border: 1px solid $green2;
+  border-radius: 16px;
+
+
+  &--next {
+    right: 30px;
+  }
+
+  &__icon {
+    color: white;
+    margin-top: 3px;
+
+    &--back {
+      transform: rotate(180deg);
+    }
+  }
+}
