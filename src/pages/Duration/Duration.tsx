@@ -6,6 +6,7 @@ import Header from '../../components/Header/Header'
 import SubTitle from '../../components/SubTitle/SubTitle'
 import AppContext from '../../Context/App.context';
 import StepBar from '../../components/StepBar/StepBar';
+import ArrowButton from '../../components/Button/ArrowButton';
 
 function Duration() {
   const { setDuration, duration, setCurrentStep } = useContext(AppContext);
@@ -27,13 +28,13 @@ function Duration() {
       <SubTitle sentence='Escolha o tempo de duração da reunião:' bold='tempo de duração' />
       <div className='duration__buttons'>
         {buttonValues.map((button, index) => {
-          console.log(duration);
           return(
           <Button text={button.label} value={ button.value } selected={duration === button.value} onClick={ onClick }/>
         )})}
       </div>
       <SubTitle sentence='Para pedidos de orçamento: escolha a reunião de 15 min. O valor da mesma, após aceitação de orçamento, será descontado no valor total.' />
       <StepBar />
+      <ArrowButton isNext onClick={ () => {} } />
     </div>
   )
 }
