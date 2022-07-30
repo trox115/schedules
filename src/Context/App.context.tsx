@@ -1,8 +1,8 @@
 import React from "react";
 
 export interface AppContextProps {
-  entered: boolean,
-  setEntered: Function,
+  page: number,
+  setPage: Function,
   duration: number,
   setDuration: Function
   totalSteps: number,
@@ -11,8 +11,8 @@ export interface AppContextProps {
 }
 
 const AppContext = React.createContext<Partial<AppContextProps>>({
-  entered: false,
-  setEntered: (bool: boolean) => { bool = true },
+  page: 0,
+  setPage: (bool: boolean) => { bool = true },
   duration: 0,
   setDuration: () => {},
   totalSteps: 4,

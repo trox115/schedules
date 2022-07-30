@@ -9,7 +9,7 @@ import StepBar from '../../components/StepBar/StepBar';
 import ArrowButton from '../../components/Button/ArrowButton';
 
 function Duration() {
-  const { setDuration, duration, setCurrentStep } = useContext(AppContext);
+  const { setDuration, duration, setCurrentStep, setPage } = useContext(AppContext);
 
   const buttonValues = [{label: '15 min', value: 15, price: 45}, {label: '30 min', value: 30, price: 75}, {label:'45 min', value: 45, price: 100}, {label:'60 min', value: 60, price: 150 }]
 
@@ -34,7 +34,7 @@ function Duration() {
       </div>
       <SubTitle sentence='Para pedidos de orçamento: escolha a reunião de 15 min. O valor da mesma, após aceitação de orçamento, será descontado no valor total.' />
       <StepBar />
-      <ArrowButton isNext onClick={ () => {} } />
+      <ArrowButton isNext onClick={ setPage ? () => setPage(2) : () => {} } />
     </div>
   )
 }
