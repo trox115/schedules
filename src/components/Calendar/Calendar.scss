@@ -1,0 +1,72 @@
+@import "../../styles/colors";
+@import "../../styles/variables";
+
+.react-datepicker {
+  width: calc(100% - 32px);
+  margin: auto;
+  background: none;
+  border: none;
+
+  &__navigation{
+    color: white;
+
+    &--previous {
+      color: white;
+    }
+  }
+
+  &__current-month {
+    color: white;
+    font-family: $titleFont;
+    font-size: 15px;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+  }
+
+  &__day-names{
+    border: none;
+    display: flex;
+    justify-content: space-evenly;
+    text-transform: capitalize;
+  }
+
+  &__week{
+    display: flex;
+    // gap: calc(100% / 7)
+  }
+
+  &__day {
+    color: white;
+    font-size: 18px;
+    width: 47px;
+    height: 39px;
+    line-height: 39px;
+    font-family: $titleFont !important;
+
+    &--selected {
+      background-color: $lightGreen !important;
+      border-radius: 16px !important;
+    }
+
+    &--disabled {
+      user-select: none;
+      color: $grey2;
+    }
+  }
+
+  &__day-name{
+    font-family: $titleFont;
+    color: $lightGreen;
+  }
+
+  &__month-container {
+    width: 100%;
+    background: none;
+  }
+
+  &__header {
+    width: 100%;
+    background: none;
+    color: white;
+  }
+}
