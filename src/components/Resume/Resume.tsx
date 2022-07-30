@@ -11,7 +11,7 @@ function Resume() {
         <div className="resume">
           <span className='resume__text'>A sua seleção:</span>
           {duration && <span className='resume__text--bold'> { ` ${ duration } min` }</span>}
-          {date && <span className='resume__text--bold'> {` ${ date }`}</span>}
+          {date && <span className='resume__text--capitalize resume__text--bold'> {`| ${ date } `}</span>}
         </div>
     )
 }

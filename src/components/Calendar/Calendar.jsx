@@ -6,13 +6,14 @@ import "./Calendar.scss";
 import pt from 'date-fns/locale/pt';
 import { addDays, isAfter, setDate } from "date-fns";
 import AppContext from "../../Context/App.context";
+import  format  from "date-fns/format";
 
 
 const Calendar = () => {
   const {setDate} = useContext(AppContext)
   const [startDate, setStartDate] = useState(addDays(new Date(), 1));
   useEffect(() => {
-    setDate(startDate)
+    setDate(format(startDate, 'dd LLLL', { locale: pt }))    
   }) 
 
   const isAvailable = (date) => {
