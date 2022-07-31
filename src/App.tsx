@@ -14,6 +14,7 @@ function App() {
   const [date, setDate] = useState('');
   const [time, setTime] = useState(0);
   const totalSteps = 4;
+  
   const context = {
     page,
     setPage,
