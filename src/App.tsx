@@ -12,6 +12,7 @@ function App() {
   const [duration, setDuration] = useState(0);
   const [currentStep, setCurrentStep] = useState(0);
   const [date, setDate] = useState('');
+  const [time, setTime] = useState(0);
   const totalSteps = 4;
   const context = {
     page,
@@ -22,7 +23,9 @@ function App() {
     currentStep,
     setCurrentStep,
     date,
-    setDate
+    setDate,
+    time,
+    setTime
   }
 
   return (

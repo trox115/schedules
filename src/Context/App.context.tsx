@@ -9,7 +9,9 @@ export interface AppContextProps {
   currentStep: number,
   setCurrentStep: Function,
   date: string,
-  setDate: Function
+  setDate: Function,
+  time: number,
+  setTime: Function
 }
 
 const AppContext = React.createContext<Partial<AppContextProps>>({
@@ -21,7 +23,9 @@ const AppContext = React.createContext<Partial<AppContextProps>>({
   currentStep: 0,
   setCurrentStep: () => {},
   date: '',
-  setDate: () => {}
+  setDate: () => {},
+  time: 0,
+  setTime: () => {}
 })
 
 export default AppContext;
