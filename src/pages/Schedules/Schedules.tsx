@@ -32,7 +32,7 @@ export default function Schedules() {
     <div className='schedules'>
       <Header />
       <Resume />
-      <SubTitle sentence='Escolha a hora: ' />
+      <SubTitle sentence='Escolha a hora: ' align='left'/>
       <div className='schedules__buttons'>
         {buttons.map((button, index) => {
           return (
