@@ -1,5 +1,7 @@
 import { createModel } from "@rematch/core"
 import { RootModel } from ".."
+import { get } from "../../Api/api";
+import { apiUrls, replaceUrls } from "../../Api/apiUrls";
 import ContentState from "../../interfaces/content/content"
 
 export default createModel<RootModel>()({
@@ -13,12 +15,32 @@ export default createModel<RootModel>()({
   reducers: {
     setLodading(state: ContentState, payload: boolean) {
       return { ...state, loading: payload }
+    },
+
+    setContent(state: ContentState, payload){
+      return { ...state, availableTimes: payload.availableTimes, timeIntervals: payload.timeIntervals }
     }
   },
 
   effects: (dispatch) => ({
     enableLoading(): void {
       dispatch.content.setLodading(true);
+    },
+
+    disableLoading(): void {
+      dispatch.content.setLodading(false);
+    },
+
+    async getContent():Promise<void>{
+      try {
+        dispatch.content.enableLoading();
+        const response = await get(replaceUrls(apiUrls.content));
+        if(response.status === 200){
+          const results = response.data.results;    
+        }
+      } catch (error) {
+        //TODO: handle error
+      }
     }
   })
 
