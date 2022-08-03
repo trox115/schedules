@@ -12,6 +12,7 @@ import  format  from "date-fns/format";
 const Calendar = () => {
   const {setDate} = useContext(AppContext)
   const [startDate, setStartDate] = useState(addDays(new Date(), 1));
+
   useEffect(() => {
     setDate(format(startDate, 'dd LLLL', { locale: pt }))    
   }) 
