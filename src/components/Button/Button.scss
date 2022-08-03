@@ -14,5 +14,11 @@
 
   &--selected {
     background-image: linear-gradient(to bottom right, $lightGreen, $darkGreen);
-  } 
+  }
+
+  &--small {
+    padding: 8px;
+    width: 74px;
+    box-sizing: border-box;
+  }
 }

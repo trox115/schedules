@@ -9,40 +9,40 @@ import AppContext from '../../Context/App.context'
 import StepBar from '../../components/StepBar/StepBar'
 import ArrowButton from '../../components/Button/ArrowButton'
 
-export default function Schedules() { 
-    const { setTime, setCurrentStep, time, setPage} = useContext(AppContext)
-    const buttons = [{label: "20:00", value: 20},
-                    {label: "21:00", value: 21},
-                    {label: "19:00", value: 19}, 
-                    {label: "18:00", value: 18}, 
-                    {label: "17:00", value: 17},
-                    {label: "16:00", value: 16}]
+export default function Schedules() {
+  const { setTime, setCurrentStep, time, setPage } = useContext(AppContext)
+  const buttons = [{ label: "20:00", value: 20 },
+  { label: "21:00", value: 21 },
+  { label: "19:00", value: 19 },
+  { label: "18:00", value: 18 },
+  { label: "17:00", value: 17 },
+  { label: "16:00", value: 16 }]
 
-    const onClick = (e:Event) => {
-        e.preventDefault();
-        const value = (e.target as HTMLButtonElement).value;
+  const onClick = (e: Event) => {
+    e.preventDefault();
+    const value = (e.target as HTMLButtonElement).value;
 
-        if(setTime && setCurrentStep){
-            setTime(+value);
-            setCurrentStep(3);
-        }
+    if (setTime && setCurrentStep) {
+      setTime(+value);
+      setCurrentStep(3);
     }
+  }
 
-  return ( 
+  return (
     <div className='schedules'>
-        <Header/>
-        <Resume/>
-        <SubTitle sentence='Escolha a hora: '/>
-        <div className='schedules-buttons__button'>
-            {buttons.map((button, index) => {
-                return(
-                    <Button text={button.label} value={ button.value } selected={time === button.value } onClick={ onClick }/>
-                )
-            })}
-        </div>
-        <StepBar />
-        <ArrowButton isNext={false} onClick={setPage? () => setPage(2) : () => {}}/>
-        <ArrowButton isNext onClick={setPage? () => setPage(4) : () => {}}/>
+      <Header />
+      <Resume />
+      <SubTitle sentence='Escolha a hora: ' />
+      <div className='schedules__buttons'>
+        {buttons.map((button, index) => {
+          return (
+            <Button key={ index } text={button.label} value={button.value} selected={time === button.value} onClick={onClick} size={'small'} />
+          )
+        })}
+      </div>
+      <StepBar />
+      <ArrowButton isNext={false} onClick={setPage ? () => setPage(2) : () => { }} />
+      <ArrowButton isNext onClick={setPage ? () => setPage(4) : () => { }} />
     </div>
   )
 }
