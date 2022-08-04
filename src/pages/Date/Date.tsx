@@ -22,8 +22,8 @@ useEffect(() => {
         <div className="date">
           <Header />
           <Resume />
-          <SubTitle sentence='Escolha o dia para a reunião:' bold='dia' align='left'/>           
-          <Calendar />     
+          <SubTitle sentence='Escolha o dia para a reunião:' bold='dia' align='left'/>
+          <Calendar />
           <StepBar />
           <ArrowButton isNext={ false } onClick={ setPage ? () => setPage(1) : () => {} } />
           <ArrowButton isNext onClick={ setPage ? () => setPage(3) : () => {} } />

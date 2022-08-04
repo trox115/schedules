@@ -1,4 +1,6 @@
 .duration {
+  margin: 0 auto;
+  width: calc(100% - 30px);
   &__buttons {
     display: flex;
     flex-wrap: wrap;
