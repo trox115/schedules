@@ -1,16 +1,21 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import './Subtitle.scss'
 
 interface SubtitleProps {
   sentence: string,
-  bold?: string
+  bold?: string,
+  align?: string
 }
 
-function SubTitle({ sentence, bold=''} : SubtitleProps) {
+function SubTitle({ sentence, bold='', align='center'} : SubtitleProps) {
   const textArray = sentence.split(bold);
   return (
-        <h2 className='subtitle'>{textArray.map((item, index) => (
+        <h2 className={classNames({
+          'subtitle': true,
+          'subtitle--left': align === 'left'
+        })}>{textArray.map((item, index) => (
           <>
             {item}
             {index !== textArray.length - 1 && (

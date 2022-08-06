@@ -26,14 +26,14 @@ function Duration() {
   return (
     <div className='duration'>
       <Header />
-      <SubTitle sentence='Escolha o tempo de duração da reunião:' bold='tempo de duração' />
+      <SubTitle sentence='Escolha o tempo de duração da reunião:' bold='tempo de duração'/>
       <div className='duration__buttons'>
         {timeIntervals.map((button, index) => {
           return(
           <Button text={button.label} value={ button.value } selected={duration === button.value} onClick={ onClick }/>
         )})}
       </div>
-      <SubTitle sentence='Para pedidos de orçamento: escolha a reunião de 15 min. O valor da mesma, após aceitação de orçamento, será descontado no valor total.' />
+      <SubTitle sentence='Para pedidos de orçamento: escolha a reunião de 15 min. O valor da mesma, após aceitação de orçamento, será descontado no valor total.'/>
       <StepBar />
       <ArrowButton isNext onClick={ setPage ? () => setPage(2) : () => {} } />
     </div>
