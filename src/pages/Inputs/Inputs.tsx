@@ -9,8 +9,25 @@ import SubTitle from '../../components/SubTitle/SubTitle'
 import AppContext from '../../Context/App.context'
 
 function Inputs() {
-  const { setCurrentStep, setPage} = useContext(AppContext)
+  const { setCurrentStep, setPage, name, setName, message, setMessage, email, setEmail} = useContext(AppContext)
 
+  const onClick = (e:Event) => {
+    e.preventDefault();
+    const value = (e.target as HTMLButtonElement).value;
+
+    if(setName && setCurrentStep){
+      setName(+value);
+      setCurrentStep(4);
+    }
+    if(setMessage && setCurrentStep){
+      setMessage(+value);
+      setCurrentStep(4);
+    }
+        if(setEmail && setCurrentStep){
+      setEmail(+value);
+      setCurrentStep(4);
+    }
+  }
   return (
     <div className='inputs'>
       <Header/>
@@ -21,6 +38,7 @@ function Inputs() {
       </div>
       <StepBar />
       <ArrowButton isNext={false} onClick={setPage ? () => setPage(3) : () => { }} />
+      <Button text='Enviar' onClick={ onClick } size='large'/>
     </div>
   )
 }
