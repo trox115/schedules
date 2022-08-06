@@ -9,6 +9,8 @@ import StepBar from '../../components/StepBar/StepBar'
 import SubTitle from '../../components/SubTitle/SubTitle'
 import AppContext from '../../Context/App.context'
 
+import './Inputs.scss'
+
 function Inputs() {
   const { setCurrentStep, setPage, name, setName, message, setMessage, email, setEmail} = useContext(AppContext)
 
