@@ -1,17 +1,17 @@
 @import "../../styles/colors";
 @import "../../styles/variables";
 
-.create {
+.create__input {
     max-width: 400px;
     margin: 0 auto;
     text-align: center;
   
-   label {
+   &__label {
     text-align: left;
     display: block;
     color: $green2;
   }
-   &--text {
+   &--text{
     background: none;
     width: 100%;
     height: 40px;
@@ -27,7 +27,6 @@
     background: none;
     width: 100%;
     height: 100px;
-    padding: 6px 10px;
     margin: 10px 0;
     border: 1px solid $green2;
     border-radius: 16px;

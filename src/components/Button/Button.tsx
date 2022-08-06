@@ -8,7 +8,8 @@ interface ButtonProps {
   selected?: boolean
   onClick: (e: any) => void,
   value?: number,
-  size?: string
+  size?: string,
+  onChange?: (e:any) => void
 }
 
 function Button({ text, selected, onClick, value, size = 'medium' }: ButtonProps) {
@@ -19,7 +20,7 @@ function Button({ text, selected, onClick, value, size = 'medium' }: ButtonProps
       'button': true,
       'button--selected': selected,
       'button--small': size === 'small',
-      'button--send': size === 'large'
+      'button--large': size === 'large'
     })}
       value={value}
       onClick={onClick}>{text}</button>

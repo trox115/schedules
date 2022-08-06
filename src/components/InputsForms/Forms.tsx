@@ -1,28 +1,30 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import AppContext from '../../Context/App.context'
 
 import "./Forms.scss"
 
 interface FormsProps{
     sentence: string,
-
 }
 
-
 function Forms({sentence}: FormsProps) {
+
+
   return (
-    <form className='create'>
-        <label>Nome</label>
-        <input className='create--text'
+    <form className='create__input'>
+        <label className='create__input__label'>Nome</label>
+        <input className='create__input--text'
             type='text'
             required
         />
-        <label>Email</label>
-        <input className='create--text'
+        <label className='create__input__label'>Email</label>
+        <input className='create__input--text'
             type='text'
             required
         />
-        <label>Mensagem</label>
-        <textarea className='create--textarea'
+        <label className='create__input__label'>Mensagem</label>
+        <input className='create__input--textarea'
+            type='text'
             required
         />
     </form>

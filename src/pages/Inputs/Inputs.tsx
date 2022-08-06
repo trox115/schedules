@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+
 import ArrowButton from '../../components/Button/ArrowButton'
 import Button from '../../components/Button/Button'
 import Header from '../../components/Header/Header'
@@ -23,7 +24,7 @@ function Inputs() {
       setMessage(+value);
       setCurrentStep(4);
     }
-        if(setEmail && setCurrentStep){
+    if(setEmail && setCurrentStep){
       setEmail(+value);
       setCurrentStep(4);
     }
@@ -38,7 +39,8 @@ function Inputs() {
       </div>
       <StepBar />
       <ArrowButton isNext={false} onClick={setPage ? () => setPage(3) : () => { }} />
-      <Button text='Enviar' onClick={ onClick } size='large'/>
+      <Button text='Enviar' onClick={ onClick } size='large' />
+      
     </div>
   )
 }
