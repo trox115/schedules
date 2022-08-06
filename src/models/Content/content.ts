@@ -36,7 +36,8 @@ export default createModel<RootModel>()({
         dispatch.content.enableLoading();
         const response = await get(replaceUrls(apiUrls.content));
         if(response.status === 200){
-          const results = response.data.results;    
+          const data = response.data;
+          dispatch.content.setContent(data);   
         }
       } catch (error) {
         //TODO: handle error
