@@ -1,19 +1,28 @@
-import React from 'react'
+import React from 'react';
+import classNames from 'classnames';
 
 import './Button.scss';
 
-interface ButtonProps { 
+interface ButtonProps {
   text: string,
   selected: boolean
-  onClick: (e:any) => void,
-  value: number
+  onClick: (e: any) => void,
+  value: number,
+  size?: string
 }
 
-function Button({ text, selected, onClick, value }: ButtonProps) {
+function Button({ text, selected, onClick, value, size = 'medium' }: ButtonProps) {
 
   return (
-      <button className={!selected ? 'button' : 'button button--selected'} value={ value } onClick={ onClick }>{ text }</button>
-    )
+
+    <button className={classNames({
+      'button': true,
+      'button--selected': selected,
+      'button--small': size === 'small'
+    })}
+      value={value}
+      onClick={onClick}>{text}</button>
+  )
 }
 
 export default Button

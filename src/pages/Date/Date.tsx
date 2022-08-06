@@ -7,6 +7,7 @@ import StepBar from '../../components/StepBar/StepBar'
 import SubTitle from '../../components/SubTitle/SubTitle'
 import AppContext from '../../Context/App.context'
 
+import './Date.scss'
 
 function Date() {
   const { setCurrentStep, setPage } = useContext(AppContext);
@@ -21,7 +22,7 @@ useEffect(() => {
         <div className="date">
           <Header />
           <Resume />
-          <SubTitle sentence='Escolha o dia para a reunião' bold='dia' />
+          <SubTitle sentence='Escolha o dia para a reunião:' bold='dia' align='left'/>
           <Calendar />
           <StepBar />
           <ArrowButton isNext={ false } onClick={ setPage ? () => setPage(1) : () => {} } />
