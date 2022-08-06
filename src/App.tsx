@@ -5,6 +5,7 @@ import InitialScreen from './components/InitialScreen/InitialScreen';
 import AppContext from './Context/App.context';
 import Date from './pages/Date/Date';
 import Duration from './pages/Duration/Duration';
+import Inputs from './pages/Inputs/Inputs';
 import Schedules from './pages/Schedules/Schedules';
 
 function App() {
@@ -13,6 +14,9 @@ function App() {
   const [currentStep, setCurrentStep] = useState(0);
   const [date, setDate] = useState('');
   const [time, setTime] = useState(0);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
   const totalSteps = 4;
   
   const context = {
@@ -26,7 +30,13 @@ function App() {
     date,
     setDate,
     time,
-    setTime
+    setTime,
+    name,
+    setName,
+    email,
+    setEmail,
+    message,
+    setMessage
   }
 
   return (
@@ -36,6 +46,7 @@ function App() {
       { page === 1 && <Duration /> }
       { page === 2 && <Date /> }
       { page === 3 && <Schedules /> }
+      { page === 4 && <Inputs />}
       </AppContext.Provider>
     </div>
   );
