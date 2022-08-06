@@ -14,9 +14,11 @@ function App() {
   const [currentStep, setCurrentStep] = useState(0);
   const [date, setDate] = useState('');
   const [time, setTime] = useState(0);
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  const [details, setDetails] = useState({
+    name: '',
+    email: '',
+    message: ''
+  })
   const totalSteps = 4;
   
   const context = {
@@ -31,12 +33,8 @@ function App() {
     setDate,
     time,
     setTime,
-    name,
-    setName,
-    email,
-    setEmail,
-    message,
-    setMessage
+    details, 
+    setDetails
   }
 
   return (

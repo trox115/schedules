@@ -12,12 +12,8 @@ export interface AppContextProps {
   setDate: Function,
   time: number,
   setTime: Function,
-  name: string,
-  setName: Function,
-  email: string,
-  setEmail: Function,
-  message: string,
-  setMessage: Function
+  details: {},
+  setDetails: Function
 }
 
 const AppContext = React.createContext<Partial<AppContextProps>>({
@@ -32,12 +28,8 @@ const AppContext = React.createContext<Partial<AppContextProps>>({
   setDate: () => {},
   time: 0,
   setTime: () => {},
-  name: '',
-  setName: () => {},
-  email: '',
-  setEmail: () => {},
-  message: '',
-  setMessage: () => {}
+  details: {},
+  setDetails: () => {}
 })
 
 export default AppContext;

@@ -6,13 +6,13 @@ import './Button.scss';
 interface ButtonProps {
   text: string,
   selected?: boolean
-  onClick: (e: any) => void,
+  onClick?: (e: any) => void,
   value?: number,
   size?: string,
-  onChange?: (e:any) => void
+  type?: string
 }
 
-function Button({ text, selected, onClick, value, size = 'medium' }: ButtonProps) {
+function Button({ text, selected, onClick, value, size = 'medium', type = 'submit' }: ButtonProps) {
 
   return (
 
