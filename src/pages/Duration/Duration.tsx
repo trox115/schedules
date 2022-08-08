@@ -7,11 +7,12 @@ import SubTitle from '../../components/SubTitle/SubTitle'
 import AppContext from '../../Context/App.context';
 import StepBar from '../../components/StepBar/StepBar';
 import ArrowButton from '../../components/Button/ArrowButton';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
 
 function Duration() {
   const { setDuration, duration, setCurrentStep, setPage } = useContext(AppContext);
-
-  const buttonValues = [{label: '15 min', value: 15, price: 45}, {label: '30 min', value: 30, price: 75}, {label:'45 min', value: 45, price: 100}, {label:'60 min', value: 60, price: 150 }]
+  const { timeIntervals } = useSelector((state :RootState) => state.content);
 
   const onClick = (e:Event) => {
     e.preventDefault();
@@ -27,7 +28,7 @@ function Duration() {
       <Header />
       <SubTitle sentence='Escolha o tempo de duração da reunião:' bold='tempo de duração'/>
       <div className='duration__buttons'>
-        {buttonValues.map((button, index) => {
+        {timeIntervals.map((button, index) => {
           return(
           <Button text={button.label} value={ button.value } selected={duration === button.value} onClick={ onClick }/>
         )})}

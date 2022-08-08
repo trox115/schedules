@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { Provider } from 'react-redux';
 
 import './App.scss';
 import InitialScreen from './components/InitialScreen/InitialScreen';
 import AppContext from './Context/App.context';
 import Date from './pages/Date/Date';
 import Duration from './pages/Duration/Duration';
+import { store } from './store';
 import Schedules from './pages/Schedules/Schedules';
 
 function App() {
@@ -14,7 +16,7 @@ function App() {
   const [date, setDate] = useState('');
   const [time, setTime] = useState(0);
   const totalSteps = 4;
-  
+
   const context = {
     page,
     setPage,
@@ -30,14 +32,16 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <AppContext.Provider value={ context }>
-      { page === 0 && <InitialScreen /> }
-      { page === 1 && <Duration /> }
-      { page === 2 && <Date /> }
-      { page === 3 && <Schedules /> }
-      </AppContext.Provider>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <AppContext.Provider value={context}>
+          {page === 0 && <InitialScreen />}
+          {page === 1 && <Duration />}
+          {page === 2 && <Date />}
+          {page === 3 && <Schedules />}
+        </AppContext.Provider>
+      </div>
+    </Provider>
   );
 }
 
