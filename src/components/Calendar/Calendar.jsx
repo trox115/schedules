@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
+import { addDays, isAfter } from "date-fns";
 
 import "react-datepicker/dist/react-datepicker.css";
 import "./Calendar.scss";
 import pt from 'date-fns/locale/pt';
-import { addDays, isAfter } from "date-fns";
 import AppContext from "../../Context/App.context";
 
 

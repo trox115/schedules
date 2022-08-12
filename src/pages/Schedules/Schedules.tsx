@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import { isWeekend, parse } from 'date-fns'
 
 import "./Schedules.scss"
 import Header from '../../components/Header/Header'
@@ -10,7 +11,6 @@ import AppContext from '../../Context/App.context'
 import StepBar from '../../components/StepBar/StepBar'
 import ArrowButton from '../../components/Button/ArrowButton'
 import { RootState } from '../../store'
-import { isWeekend, parse } from 'date-fns'
 
 export default function Schedules() {
   const { setTime, setCurrentStep, time, setPage, date, duration } = useContext(AppContext)
