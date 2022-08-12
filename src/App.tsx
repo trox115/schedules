@@ -13,8 +13,8 @@ function App() {
   const [page, setPage] = useState(0);
   const [duration, setDuration] = useState(0);
   const [currentStep, setCurrentStep] = useState(0);
-  const [date, setDate] = useState('');
-  const [time, setTime] = useState(0);
+  const [date, setDate] = useState(null);
+  const [time, setTime] = useState('');
   const totalSteps = 4;
 
   const context = {
