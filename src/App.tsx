@@ -8,6 +8,7 @@ import Date from './pages/Date/Date';
 import Duration from './pages/Duration/Duration';
 import { store } from './store';
 import Schedules from './pages/Schedules/Schedules';
+import Inputs from './pages/Inputs/Inputs';
 
 function App() {
   const [page, setPage] = useState(0);
@@ -16,6 +17,12 @@ function App() {
   const [date, setDate] = useState(null);
   const [time, setTime] = useState('');
   const totalSteps = 4;
+
+  const [details, setDetails] = useState({
+    name: '',
+    email: '',
+    message: ''
+  })
 
   const context = {
     page,
@@ -28,7 +35,9 @@ function App() {
     date,
     setDate,
     time,
-    setTime
+    setTime,
+    details,
+    setDetails
   }
 
   return (
@@ -39,6 +48,7 @@ function App() {
           {page === 1 && <Duration />}
           {page === 2 && <Date />}
           {page === 3 && <Schedules />}
+          {page === 4 && <Inputs />}
         </AppContext.Provider>
       </div>
     </Provider>

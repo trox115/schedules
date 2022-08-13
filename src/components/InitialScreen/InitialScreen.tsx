@@ -1,5 +1,6 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 
+import { useEffect } from 'react';
 import logo from '../../logo.svg';
 import './InitialScreen.scss';
 import AppContext from '../../Context/App.context';
@@ -11,7 +12,7 @@ function InitialScreen() {
 
   useEffect(() => {
     dispatch.content.getContent();
-  },[])
+  },[]);
 
   return (
     <div className='initial'>
