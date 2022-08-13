@@ -5,20 +5,22 @@ import './Button.scss';
 
 interface ButtonProps {
   text: string,
-  selected: boolean
-  onClick: (e: any) => void,
-  value: number,
-  size?: string
+  selected?: boolean
+  onClick?: (e: any) => void,
+  value?: number,
+  size?: string,
+  type?: string
 }
 
-function Button({ text, selected, onClick, value, size = 'medium' }: ButtonProps) {
+function Button({ text, selected, onClick, value, size = 'medium', type = 'submit' }: ButtonProps) {
 
   return (
 
     <button className={classNames({
       'button': true,
       'button--selected': selected,
-      'button--small': size === 'small'
+      'button--small': size === 'small',
+      'button--large': size === 'large'
     })}
       value={value}
       onClick={onClick}>{text}</button>

@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { Provider } from 'react-redux';
 
 import './App.scss';
 import InitialScreen from './components/InitialScreen/InitialScreen';
 import AppContext from './Context/App.context';
 import Date from './pages/Date/Date';
 import Duration from './pages/Duration/Duration';
-import { store } from './store';
+import Inputs from './pages/Inputs/Inputs';
 import Schedules from './pages/Schedules/Schedules';
 
 function App() {
@@ -15,8 +14,13 @@ function App() {
   const [currentStep, setCurrentStep] = useState(0);
   const [date, setDate] = useState('');
   const [time, setTime] = useState(0);
+  const [details, setDetails] = useState({
+    name: '',
+    email: '',
+    message: ''
+  })
   const totalSteps = 4;
-
+  
   const context = {
     page,
     setPage,
@@ -28,20 +32,21 @@ function App() {
     date,
     setDate,
     time,
-    setTime
+    setTime,
+    details, 
+    setDetails
   }
 
   return (
-    <Provider store={store}>
-      <div className="App">
-        <AppContext.Provider value={context}>
-          {page === 0 && <InitialScreen />}
-          {page === 1 && <Duration />}
-          {page === 2 && <Date />}
-          {page === 3 && <Schedules />}
-        </AppContext.Provider>
-      </div>
-    </Provider>
+    <div className="App">
+      <AppContext.Provider value={ context }>
+      { page === 0 && <InitialScreen /> }
+      { page === 1 && <Duration /> }
+      { page === 2 && <Date /> }
+      { page === 3 && <Schedules /> }
+      { page === 4 && <Inputs />}
+      </AppContext.Provider>
+    </div>
   );
 }
 
