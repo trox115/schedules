@@ -22,8 +22,11 @@ const Calendar = () => {
   const isAvailable = (date) => {
     const today = new Date();
     const formatedDate = format(date, 'dd/MM/yyyy');
+    if(schedules.length === 0){
+      return isAfter(date, today);
+    }
     const bookedDates = _.filter(schedules, (booked) => {
-      const splitedDate = (booked.date).split('T')
+      const splitedDate = (booked?.date).split('T')
       return format(new Date(splitedDate), 'dd/MM/yyyy') === formatedDate;
     })
 
