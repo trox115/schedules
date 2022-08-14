@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { isWeekend, parse } from 'date-fns'
+import { format, isAfter, isBefore, isWeekend, parse, parseISO } from 'date-fns';
+import _ from 'lodash';
 
 import "./Schedules.scss"
 import Header from '../../components/Header/Header'
@@ -11,21 +12,49 @@ import AppContext from '../../Context/App.context'
 import StepBar from '../../components/StepBar/StepBar'
 import ArrowButton from '../../components/Button/ArrowButton'
 import { RootState } from '../../store'
+import ScheduleState from '../../interfaces/schedule/schedule';
 
 export default function Schedules() {
   const { setTime, setCurrentStep, time, setPage, date, duration } = useContext(AppContext)
   const [buttons, setButtons] = useState([{ label: '20', value: '0' }]);
   const { availableTimes } = useSelector((state: RootState) => state.content);
+  const { schedules } = useSelector((state: RootState) => state.schedules);
+
 
   const generateArrayOfTime = (from:string, to:string ) => {
     const start = parse(from, 'HH:mm', date || new Date());
     const end =  parse(to, 'HH:mm', date || new Date());
 
     const multiplier = duration || 15;
-    const aux = []
+    const aux = [];
+    let bookedDates:any = [];
+    if(date){
+      const formatedDate = format(date, 'dd/MM/yyyy');
+    
+      bookedDates = _.filter(schedules, (booked) => {
+        const splitedDate = (booked.date).split('T')
+        return format(new Date(splitedDate[0]), 'dd/MM/yyyy') === formatedDate;
+      })
+    }
+
     for(let i = start; i <= end; i = new Date(i.getTime() + multiplier * 60000)){
-      aux.push({label:`${ i.getHours() }:${ i.getMinutes() === 0 ? '00' : i.getMinutes()}`,
-       value:`${ i.getHours() }:${ i.getMinutes() === 0 ? '00' : i.getMinutes()}`});
+     const shouldPushTime = _.some(bookedDates, (booked) => {
+      // const valid = true;
+      if(date){
+        const meetingStart = new Date(date).setUTCHours(new Date(booked.start).getHours(),new Date( booked.start).getMinutes(), 0, 0);
+        const meetingEnd = new Date(date).setUTCHours(new Date(booked.end).getHours(),new Date(booked.end).getMinutes() -1, 0, 0);
+        const newstart = new Date(date).setUTCHours(i.getHours(),i.getMinutes(), 0, 0);
+        const ending = new Date(i.getTime() + multiplier * 60000);
+        const newEnd = new Date(date).setUTCHours(ending.getHours(), ending.getMinutes(), 0, 0);
+        return isAfter(newstart, meetingEnd) || isBefore(newEnd, meetingStart);
+      }
+      return true;
+      })
+
+      if(shouldPushTime || bookedDates.length === 0){
+        aux.push({label:`${ i.getHours() }:${ i.getMinutes() === 0 ? '00' : i.getMinutes()}`,
+        value:`${ i.getHours() }:${ i.getMinutes() === 0 ? '00' : i.getMinutes()}`});
+      }
     }
     setButtons(aux);
   }
