@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 
 import ArrowButton from '../../components/Button/ArrowButton'
-import Button from '../../components/Button/Button'
 import Header from '../../components/Header/Header'
 import Forms from '../../components/InputsForms/Forms'
 import Resume from '../../components/Resume/Resume'
@@ -12,17 +11,8 @@ import AppContext from '../../Context/App.context'
 import './Inputs.scss'
 
 function Inputs() {
-  const { setCurrentStep, setPage, details, setDetails} = useContext(AppContext)
+  const { setPage } = useContext(AppContext)
 
-  const onClick = (e:Event) => {
-    e.preventDefault();
-    const value = (e.target as HTMLButtonElement).value;
-    if (setDetails && setCurrentStep) {
-      setDetails(+value);
-      setCurrentStep(4);
-    }
-
-  }
   return (
     <div className='inputs'>
       <Header/>
@@ -32,7 +22,7 @@ function Inputs() {
         <Forms sentence='Nome'/>
       </div>
       <StepBar />
-      <ArrowButton isNext={false} onClick={setPage ? () => setPage(3) : () => { }} />      
+      <ArrowButton isNext={false} onClick={ setPage ? () => setPage(3) : () => { } } />      
     </div>
   )
 }

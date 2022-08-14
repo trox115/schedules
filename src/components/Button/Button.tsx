@@ -7,7 +7,7 @@ interface ButtonProps {
   text: string,
   selected?: boolean
   onClick?: (e: any) => void,
-  value?: number,
+  value?: number | string,
   size?: string,
   type?: string
 }
