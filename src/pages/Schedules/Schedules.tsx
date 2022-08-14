@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { format, isAfter, isBefore, isWeekend, parse, parseISO } from 'date-fns';
+import { format, isWeekend, parse, areIntervalsOverlapping } from 'date-fns';
 import _ from 'lodash';
 
 import "./Schedules.scss"
@@ -12,7 +12,6 @@ import AppContext from '../../Context/App.context'
 import StepBar from '../../components/StepBar/StepBar'
 import ArrowButton from '../../components/Button/ArrowButton'
 import { RootState } from '../../store'
-import ScheduleState from '../../interfaces/schedule/schedule';
 
 export default function Schedules() {
   const { setTime, setCurrentStep, time, setPage, date, duration } = useContext(AppContext)
@@ -37,23 +36,32 @@ export default function Schedules() {
       })
     }
 
-    for(let i = start; i <= end; i = new Date(i.getTime() + multiplier * 60000)){
-     const shouldPushTime = _.some(bookedDates, (booked) => {
-      // const valid = true;
-      if(date){
-        const meetingStart = new Date(date).setUTCHours(new Date(booked.start).getHours(),new Date( booked.start).getMinutes(), 0, 0);
-        const meetingEnd = new Date(date).setUTCHours(new Date(booked.end).getHours(),new Date(booked.end).getMinutes() -1, 0, 0);
-        const newstart = new Date(date).setUTCHours(i.getHours(),i.getMinutes(), 0, 0);
-        const ending = new Date(i.getTime() + multiplier * 60000);
-        const newEnd = new Date(date).setUTCHours(ending.getHours(), ending.getMinutes(), 0, 0);
-        return isAfter(newstart, meetingEnd) || isBefore(newEnd, meetingStart);
-      }
-      return true;
+    for (let i = start; i <= end; i = new Date(i.getTime() + multiplier * 60000)) {
+      const shouldPushTime = _.some(bookedDates, (booked) => {
+        // const valid = true;
+        if (date) {
+          const meetingStart = new Date(date).setUTCHours(new Date(booked.start).getHours()-1, new Date(booked.start).getMinutes(), 0, 0);
+          const meetingEnd = new Date(date).setUTCHours(new Date(booked.end).getHours()-1, new Date(booked.end).getMinutes(), 0, 0);
+          const newstart = new Date(date).setUTCHours(i.getHours(), i.getMinutes(), 0, 0);
+          const ending = new Date(i.getTime() + multiplier * 60000);
+          const newEnd = new Date(date).setUTCHours(ending.getHours(), ending.getMinutes(), 0, 0);
+          const overlapping = areIntervalsOverlapping({
+            start: meetingStart,
+            end: meetingEnd
+          }, {
+            start: newstart,
+            end: newEnd
+          })
+          return !overlapping;
+        }
+        return true;
       })
 
-      if(shouldPushTime || bookedDates.length === 0){
-        aux.push({label:`${ i.getHours() }:${ i.getMinutes() === 0 ? '00' : i.getMinutes()}`,
-        value:`${ i.getHours() }:${ i.getMinutes() === 0 ? '00' : i.getMinutes()}`});
+      if (shouldPushTime || bookedDates.length === 0) {
+        aux.push({
+          label: `${i.getHours()}:${i.getMinutes() === 0 ? '00' : i.getMinutes()}`,
+          value: `${i.getHours()}:${i.getMinutes() === 0 ? '00' : i.getMinutes()}`
+        });
       }
     }
     setButtons(aux);
