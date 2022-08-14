@@ -27,7 +27,7 @@ const Calendar = () => {
       return format(new Date(splitedDate), 'dd/MM/yyyy') === formatedDate;
     })
 
-    return isAfter(date, today) && bookedDates.length < 5;
+    return isAfter(date, today) && bookedDates.length < 3;
   }
   
   return (
