@@ -12,6 +12,7 @@ function InitialScreen() {
 
   useEffect(() => {
     dispatch.content.getContent();
+    dispatch.schedules.getSchedules();
   },[]);
 
   return (

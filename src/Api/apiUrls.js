@@ -1,6 +1,7 @@
 export const apiUrls = {
   content: '/content',
-  checkout: '/checkout/create'
+  checkout: '/checkout/create',
+  schedules: '/schedules'
 }
 
 export const replaceUrls = (url, obj) => {
