@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { Provider } from 'react-redux';
+import {
+  BrowserRouter as Router,
+} from "react-router-dom";
 
 import './App.scss';
 import InitialScreen from './components/InitialScreen/InitialScreen';
@@ -44,11 +47,13 @@ function App() {
     <Provider store={store}>
       <div className="App">
         <AppContext.Provider value={context}>
+          <Router>
           {page === 0 && <InitialScreen />}
           {page === 1 && <Duration />}
           {page === 2 && <Date />}
           {page === 3 && <Schedules />}
           {page === 4 && <Inputs />}
+          </Router>
         </AppContext.Provider>
       </div>
     </Provider>
