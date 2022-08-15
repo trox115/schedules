@@ -5,7 +5,6 @@ import Button from '../../components/Button/Button'
 import Header from '../../components/Header/Header'
 import SubTitle from '../../components/SubTitle/SubTitle'
 import AppContext from '../../Context/App.context';
-import StepBar from '../../components/StepBar/StepBar';
 import ArrowButton from '../../components/Button/ArrowButton';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
@@ -30,7 +29,7 @@ function Duration() {
       <div className='duration__buttons'>
         {timeIntervals.map((button, index) => {
           return(
-          <Button text={button.label} value={ button.value } selected={duration === button.value} onClick={ onClick }/>
+          <Button key={ button.id } text={button.label} value={ button.value } selected={duration === button.value} onClick={ onClick }/>
         )})}
       </div>
       <SubTitle sentence='Para pedidos de orçamento: escolha a reunião de 15 min. O valor da mesma, após aceitação de orçamento, será descontado no valor total.'/>

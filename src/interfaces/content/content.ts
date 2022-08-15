@@ -15,7 +15,8 @@ interface AvailableTime {
 
 interface ContentState {
   timeIntervals: TimeInterval[]
-  availableTimes: AvailableTime[]
+  availableTimes: AvailableTime[],
+  loading: boolean
 }
 
 export default ContentState;

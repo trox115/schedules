@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import classNames from 'classnames';
 
 import './Subtitle.scss'
@@ -16,12 +16,12 @@ function SubTitle({ sentence, bold='', align='center'} : SubtitleProps) {
           'subtitle': true,
           'subtitle--left': align === 'left'
         })}>{textArray.map((item, index) => (
-          <>
+          <Fragment key={ index }>
             {item}
             {index !== textArray.length - 1 && (
               <b>{ bold }</b>
             )}
-          </>
+          </Fragment>
         ))}</h2>
     )
 }
