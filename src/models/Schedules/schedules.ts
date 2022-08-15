@@ -19,7 +19,8 @@ export default createModel<RootModel>()({
 
     async getSchedules():Promise<void>{
       try {
-        dispatch.schedules.setSchedule([{ start: Date.now(), end: Date.now() }])
+        const response = await get(replaceUrls(apiUrls.schedules));
+        dispatch.schedules.setSchedule(response.data);
       } catch (error) {
         //TODO: handle error
       }

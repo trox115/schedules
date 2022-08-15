@@ -1,6 +1,7 @@
 interface Schedule {
     start: Date,
-    end: Date
+    end: Date,
+    date: string
 }
 
 interface ScheduleState {
