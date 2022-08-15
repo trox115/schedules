@@ -4,7 +4,6 @@ import ArrowButton from '../../components/Button/ArrowButton'
 import Header from '../../components/Header/Header'
 import Forms from '../../components/InputsForms/Forms'
 import Resume from '../../components/Resume/Resume'
-import StepBar from '../../components/StepBar/StepBar'
 import SubTitle from '../../components/SubTitle/SubTitle'
 import AppContext from '../../Context/App.context'
 

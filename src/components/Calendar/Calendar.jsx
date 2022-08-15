@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import { addDays, isAfter } from "date-fns";
 import { useSelector } from "react-redux";
-import { format, formatISO } from 'date-fns';
+import { format } from 'date-fns';
 import _ from 'lodash';
 
 import "react-datepicker/dist/react-datepicker.css";

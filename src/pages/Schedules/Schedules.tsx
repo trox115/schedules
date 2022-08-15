@@ -9,7 +9,6 @@ import Button from '../../components/Button/Button'
 import Resume from '../../components/Resume/Resume'
 import SubTitle from '../../components/SubTitle/SubTitle'
 import AppContext from '../../Context/App.context'
-import StepBar from '../../components/StepBar/StepBar'
 import ArrowButton from '../../components/Button/ArrowButton'
 import { RootState } from '../../store'
 
@@ -75,6 +74,7 @@ export default function Schedules() {
         generateArrayOfTime(availability.from, availability.to);
       }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[date])
   
   const onClick = (e: Event) => {
