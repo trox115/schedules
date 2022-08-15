@@ -1,5 +1,8 @@
-import React, { useState } from 'react'
-import AppContext from '../../Context/App.context'
+import React, { useContext, useState } from 'react'
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux'
+import AppContext from '../../Context/App.context';
+import { RootState } from '../../store';
 
 import "./Forms.scss"
 
@@ -8,8 +11,9 @@ interface FormsProps{
 }
 
 function Forms({sentence}: FormsProps) {
-
     const [details, setDetails] = useState(AppContext)
+    const { date, time, duration } = useContext(AppContext);
+    const dispatch = useDispatch();
 
     const handleChange = (e: any) => {
         const {name, value} = e.target
@@ -18,9 +22,10 @@ function Forms({sentence}: FormsProps) {
         })
     }
 
-    const handleSubmit = (e: any) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
-         console.log(details)
+        const response = await dispatch.schedules.postSchedule({...details, date, time, duration});
+        window.location.href= response.url;
     }
    
 
