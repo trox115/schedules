@@ -71,11 +71,9 @@ export default function Schedules() {
     if(date){
       const usableId = isWeekend(date) ? 2 : 1;
       const availability = availableTimes.find( (time) => time.id === usableId)
-
       if(availability){
         generateArrayOfTime(availability.from, availability.to);
       }
-
     }
   },[date])
   
