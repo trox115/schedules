@@ -34,4 +34,9 @@
     font-weight: normal;
     background: $green2;
   }
+
+  &__right{
+    position: absolute;
+    right: 24px;
+  }
 }
