@@ -38,11 +38,12 @@ export default createModel<RootModel>()({
         if(response.status === 200){
           const data = response.data;
           dispatch.content.setContent(data);   
+          dispatch.content.disableLoading();
         }
       } catch (error) {
         //TODO: handle error
       }
-    }
+    },
   })
 
 });
