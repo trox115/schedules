@@ -12,6 +12,7 @@ import Duration from './pages/Duration/Duration';
 import { store } from './store';
 import Schedules from './pages/Schedules/Schedules';
 import Inputs from './pages/Inputs/Inputs';
+import StepBar from './components/StepBar/StepBar';
 
 function App() {
   const [page, setPage] = useState(0);
@@ -54,6 +55,7 @@ function App() {
           {page === 3 && <Schedules />}
           {page === 4 && <Inputs />}
           </Router>
+          { page !== 0 && <StepBar /> }
         </AppContext.Provider>
       </div>
     </Provider>

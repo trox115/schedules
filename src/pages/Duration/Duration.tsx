@@ -34,7 +34,6 @@ function Duration() {
         )})}
       </div>
       <SubTitle sentence='Para pedidos de orçamento: escolha a reunião de 15 min. O valor da mesma, após aceitação de orçamento, será descontado no valor total.'/>
-      <StepBar />
       <ArrowButton isNext onClick={ setPage ? () => setPage(2) : () => {} } />
     </div>
   )

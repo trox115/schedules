@@ -99,7 +99,6 @@ export default function Schedules() {
           )
         })}
       </div>
-      <StepBar />
       <ArrowButton isNext={false} onClick={setPage ? () => setPage(2) : () => { }} />
       <ArrowButton isNext onClick={setPage ? () => setPage(4) : () => { }} />
     </div>

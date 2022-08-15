@@ -21,7 +21,6 @@ function Inputs() {
       <div className='inputs--forms'>
         <Forms sentence='Nome'/>
       </div>
-      <StepBar />
       <ArrowButton isNext={false} onClick={ setPage ? () => setPage(3) : () => { } } />      
     </div>
   )
