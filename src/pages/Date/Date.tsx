@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from 'react'
-import ArrowButton from '../../components/Button/ArrowButton'
 import Calendar from '../../components/Calendar/Calendar'
 import Header from '../../components/Header/Header'
 import Resume from '../../components/Resume/Resume'
@@ -9,10 +8,10 @@ import AppContext from '../../Context/App.context'
 import './Date.scss'
 
 function Date() {
-  const { setCurrentStep, setPage } = useContext(AppContext);
+  const { setCurrentStep, page, currentStep } = useContext(AppContext);
 
 useEffect(() => {
-  if(setCurrentStep){
+  if(setCurrentStep && page !== 1 && currentStep && currentStep !== 2){
     setCurrentStep(2)
   }
 })
@@ -23,8 +22,6 @@ useEffect(() => {
           <Resume />
           <SubTitle sentence='Escolha o dia para a reunião:' bold='dia' align='left'/>
           <Calendar />
-          <ArrowButton isNext={ false } onClick={ setPage ? () => setPage(1) : () => {} } />
-          <ArrowButton isNext onClick={ setPage ? () => setPage(3) : () => {} } />
         </div>
     )
 }

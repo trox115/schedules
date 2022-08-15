@@ -4,13 +4,9 @@ import AppContext from '../../Context/App.context';
 
 import "./Forms.scss"
 
-interface FormsProps {
-  sentence: string,
-}
-
-function Forms({ sentence }: FormsProps) {
+function Forms() {
   const [details, setDetails] = useState(AppContext)
-  const { date, time, duration } = useContext(AppContext);
+  const { date, time, duration, setCurrentStep } = useContext(AppContext);
   const dispatch = useDispatch();
 
   const handleChange = (e: any) => {
@@ -22,6 +18,7 @@ function Forms({ sentence }: FormsProps) {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+    setCurrentStep && setCurrentStep(4)
     const response = await dispatch.schedules.postSchedule({ ...details, date, time, duration });
     window.location.href = response.url;
   }
@@ -43,12 +40,10 @@ function Forms({ sentence }: FormsProps) {
         onChange={handleChange}
       />
       <label className='create__input__label'>Mensagem</label>
-      <input className='create__input--textarea'
-        type='text'
+      <textarea className='create__input--textarea'
         name='message'
         onChange={handleChange}
       />
-      <button className='create__input__button' type='submit'>Enviar</button>
     </form>
   )
 }
