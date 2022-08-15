@@ -1,6 +1,6 @@
 import { createModel } from "@rematch/core"
 import { RootModel } from ".."
-import { get, post } from "../../Api/api";
+import { get } from "../../Api/api";
 import { apiUrls, replaceUrls } from "../../Api/apiUrls";
 import ContentState from "../../interfaces/content/content"
 
@@ -38,6 +38,7 @@ export default createModel<RootModel>()({
         if(response.status === 200){
           const data = response.data;
           dispatch.content.setContent(data);   
+          dispatch.content.disableLoading();
         }
       } catch (error) {
         //TODO: handle error
