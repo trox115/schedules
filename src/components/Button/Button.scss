@@ -1,0 +1,37 @@
+@import "../../styles/colors";
+@import "../../styles/variables";
+
+.button {
+  width: calc(50% - 32px);
+  background: none;
+  color: white;
+  border: 3px solid $green2;
+  border-radius: 16px;
+  height: 41px;
+  font: $titleFont;
+  font-weight: 700;
+  font-size: 20px;
+
+  &--selected {
+    background-image: linear-gradient(to bottom right, $lightGreen, $darkGreen);
+  }
+
+  &--small {
+    padding: 8px;
+    width: 74px;
+    box-sizing: border-box;
+    font-size: 18px;
+    font-weight: normal;
+  }
+
+  &--large{
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    width: 150px;
+    box-sizing: border-box;
+    font-size: 22px;
+    font-weight: normal;
+    background: $green2;
+  }
+}

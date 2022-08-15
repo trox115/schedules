@@ -1,0 +1,11 @@
+.schedules{
+  width: calc(100% - 30px);
+  margin: 0 auto;
+
+  &__buttons{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+}

@@ -1,0 +1,19 @@
+@import "../../styles/colors";
+@import "../../styles/variables";
+
+.resume {
+  font-family: $titleFont;
+  font-size: 18px;
+  color: $blue;
+  font-weight: 300;
+
+  &__text {
+    &--bold {
+      font-weight: 800;
+    }
+    &--capitalize{
+      text-transform: capitalize;
+    }
+  }
+
+}

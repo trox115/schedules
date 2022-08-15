@@ -1,0 +1,11 @@
+.duration {
+  margin: 0 auto;
+  width: calc(100% - 30px);
+  &__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+    margin-top: 56px;
+  }
+}
