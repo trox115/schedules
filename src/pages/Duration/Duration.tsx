@@ -5,14 +5,20 @@ import Button from '../../components/Button/Button'
 import Header from '../../components/Header/Header'
 import SubTitle from '../../components/SubTitle/SubTitle'
 import AppContext from '../../Context/App.context';
-import ArrowButton from '../../components/Button/ArrowButton';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
+import { useEffect } from 'react';
 
 function Duration() {
-  const { setDuration, duration, setCurrentStep, setPage } = useContext(AppContext);
+  const { setDuration, duration, setCurrentStep } = useContext(AppContext);
   const { timeIntervals } = useSelector((state :RootState) => state.content);
 
+  useEffect(() => {
+    if(duration && duration >0){
+      setCurrentStep && setCurrentStep(1)
+    }
+  })
+  
   const onClick = (e:Event) => {
     e.preventDefault();
     const value = (e.target as HTMLButtonElement).value;
@@ -34,7 +40,6 @@ function Duration() {
         )})}
       </div>
       <SubTitle sentence='Para pedidos de orçamento: escolha a reunião de 15 min. O valor da mesma, após aceitação de orçamento, será descontado no valor total.'/>
-      { duration && duration > 0 ? <ArrowButton isNext onClick={ setPage ? () => setPage(2) : () => {} } /> : null }
     </div>
   )
 }
