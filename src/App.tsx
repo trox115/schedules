@@ -51,11 +51,11 @@ function App() {
         <AppContext.Provider value={context}>
           <Router>
             <Route path='/'>
-          {page === 0 && <InitialScreen />}
-          {page === 1 && <Duration />}
-          {page === 2 && <Date />}
-          {page === 3 && <Schedules />}
-          {page === 4 && <Inputs />}
+              {page === 0 && <InitialScreen />}
+              {page === 1 && <Duration />}
+              {page === 2 && <Date />}
+              {page === 3 && <Schedules />}
+              {page === 4 && <Inputs />}
             </Route>
             <Route path='/success'>
               <ConfirmScreen/>
