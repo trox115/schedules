@@ -10,9 +10,10 @@ interface ButtonProps {
   value?: number | string,
   size?: string,
   type?: string
+  btClass?: string
 }
 
-function Button({ text, selected, onClick, value, size = 'medium', type = 'submit' }: ButtonProps) {
+function Button({ text, selected, onClick, value, size = 'medium', btClass='' }: ButtonProps) {
 
   return (
 
@@ -20,7 +21,8 @@ function Button({ text, selected, onClick, value, size = 'medium', type = 'submi
       'button': true,
       'button--selected': selected,
       'button--small': size === 'small',
-      'button--large': size === 'large'
+      'button--large': size === 'large',
+      [btClass]: true
     })}
       value={value}
       onClick={onClick}>{text}</button>
