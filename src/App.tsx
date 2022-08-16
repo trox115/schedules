@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Provider } from 'react-redux';
 import {
   BrowserRouter as Router,
 } from "react-router-dom";
@@ -10,7 +9,6 @@ import InitialScreen from './components/InitialScreen/InitialScreen';
 import AppContext from './Context/App.context';
 import Date from './pages/Date/Date';
 import Duration from './pages/Duration/Duration';
-import { store } from './store';
 import Schedules from './pages/Schedules/Schedules';
 import Inputs from './pages/Inputs/Inputs';
 import StepBar from './components/StepBar/StepBar';
