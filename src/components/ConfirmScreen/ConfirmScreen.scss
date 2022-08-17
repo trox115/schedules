@@ -1,7 +1,7 @@
 @import "../../styles/colors";
 @import "../../styles/variables";
 
-.initial {
+.confirm {
   height: 100vh;
   overflow:hidden;
   position: relative;
@@ -53,10 +53,6 @@
     }
   }
 
-  @keyframes blinker {  
-    50% { opacity: 0; }
-  }
-  
   &__enter {
     display: block;
     margin: auto;

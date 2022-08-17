@@ -71,16 +71,16 @@ function App() {
       <div className="App">
         <AppContext.Provider value={context}>
           <Router>
-            <Route path='/'>
-              {page === 0 && <InitialScreen />}
-              {page === 1 && <Duration />}
-              {page === 2 && <Date />}
-              {page === 3 && <Schedules />}
-              {page === 4 && <Inputs />}
-            </Route>
-            <Route path='/success'>
-              <ConfirmScreen/>
-            </Route>
+          <Route path='/'>
+            {page === 0 && <InitialScreen />}
+            {page === 1 && <Duration />}
+            {page === 2 && <Date />}
+            {page === 3 && <Schedules />}
+            {page === 4 && <Inputs />}
+          </Route>
+          <Route path='/success'>
+            <ConfirmScreen/>
+          </Route>
           </Router>
           { page !== 0 && <StepBar /> }
           { page > 1 && <ArrowButton isNext={ false } onClick={ () => setPage(page-1) } /> }

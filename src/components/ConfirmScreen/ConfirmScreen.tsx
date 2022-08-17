@@ -27,12 +27,12 @@ function ConfirmScreen() {
   return (
     <div className='confirm'>
         <div className={classNames({
-            'initial__shape': true,
-            'initial__shape--all-screen': loading
+            'confirm__shape': true,
+            'confirm__shape--all-screen': loading
         })} onClick={loadContent}>
             {!loading && (
                 <>
-                    <h1 className='initial__title'>O seu pedido foi submetido com sucesso! Será contactado em breve.</h1>
+                    <h1 className='confirm__title'>O seu pedido foi submetido com sucesso! Será contactado em breve.</h1>
                 </>
             )}
         </div>
