@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Provider } from 'react-redux';
 import {
-  BrowserRouter as Router, Route,
+  BrowserRouter as Router, Route, Routes,
 } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 
@@ -71,16 +71,14 @@ function App() {
       <div className="App">
         <AppContext.Provider value={context}>
           <Router>
-          <Route path='/'>
-            {page === 0 && <InitialScreen />}
-            {page === 1 && <Duration />}
-            {page === 2 && <Date />}
-            {page === 3 && <Schedules />}
-            {page === 4 && <Inputs />}
-          </Route>
-          <Route path='/success'>
-            <ConfirmScreen/>
-          </Route>
+          <Routes>
+            <Route path='/' element={page === 0 && <InitialScreen/>}/>
+            <Route path='/' element={page === 1 && <Duration />}/>
+            <Route path='/' element={page === 2 && <Date />}/>
+            <Route path='/' element={page === 3 && <Schedules />}/>
+            <Route path='/' element={page === 4 && <Inputs />}/>          
+            <Route path='/success' element={<ConfirmScreen/>}/>           
+          </Routes>
           </Router>
           { page !== 0 && <StepBar /> }
           { page > 1 && <ArrowButton isNext={ false } onClick={ () => setPage(page-1) } /> }
