@@ -6,8 +6,7 @@ import AppContext from '../../Context/App.context'
 import './Resume.scss';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
-import { buttonBaseClasses } from '@mui/material';
-import { ScreenStackHeaderBackButtonImage } from 'react-native-screens';
+
 
 function Resume() {
   const { duration, date, time } = useContext(AppContext);
