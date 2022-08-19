@@ -1,6 +1,7 @@
 .duration {
   margin: 0 auto;
   width: calc(100% - 30px);
+  position: relative;
   &__buttons {
     display: flex;
     flex-wrap: wrap;
@@ -8,4 +9,15 @@
     justify-content: center;
     margin-top: 56px;
   }
+}
+
+@media all and (min-width: 350px){
+  .arrow-button{
+    position: absolute;
+    bottom: 5%;
+  }
+  .step-bar{
+    position: absolute;
+    bottom: 10%;
+}
 }
