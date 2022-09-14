@@ -1,19 +1,20 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { useDispatch } from 'react-redux'
 import AppContext from '../../Context/App.context';
 
 import "./Forms.scss"
 
 function Forms() {
-  const [details, setDetails] = useState(AppContext)
-  const { date, time, duration, setCurrentStep } = useContext(AppContext);
+  const { date, time, duration, setCurrentStep, details, setDetails } = useContext(AppContext);
   const dispatch = useDispatch();
 
   const handleChange = (e: any) => {
     const { name, value } = e.target
-    setDetails((prev) => {
-      return { ...prev, [name]: value }
-    })
+    if(setDetails){
+      setDetails((prev:any) => {
+        return { ...prev, [name]: value }
+      })
+    }
   }
 
   const handleSubmit = async (e: any) => {
