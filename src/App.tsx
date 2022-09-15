@@ -8,20 +8,23 @@ import './App.scss';
 import { store } from './store';
 import ConfirmScreen from './components/ConfirmScreen/ConfirmScreen';
 import RoutePage from './components/RoutePage/RoutePage';
+import { AppProvider } from './Context/App.context';
 
 function App() {
 
   return (
-      <div className="App">
-        <Provider store={store}>
+    <div className="App">
+      <Provider store={store}>
+        <AppProvider>
           <Router>
-          <Routes>
-            <Route path='/' element={ <RoutePage/> } />
-            <Route path='/success' element={<ConfirmScreen/>}/>           
-          </Routes>
+            <Routes>
+              <Route path='/' element={<RoutePage />} />
+              <Route path='/success' element={<ConfirmScreen />} />
+            </Routes>
           </Router>
-        </Provider>
-      </div>
+        </AppProvider>
+      </Provider>
+    </div>
   );
 }
 

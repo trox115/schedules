@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { memo } from 'react';
 import classNames from 'classnames';
+import { useContextSelector } from 'use-context-selector';
 
 import './Button.scss';
+import { AppContext } from '../../Context/App.context';
 
 interface ButtonProps {
   text: string,
@@ -10,16 +12,17 @@ interface ButtonProps {
   value?: number | string,
   size?: string,
   type?: string
-  btClass?: string
+  btClass?: string,
+  isDuration?: boolean
 }
 
-function Button({ text, selected, onClick, value, size = 'medium', btClass='' }: ButtonProps) {
+function Button({ text, selected, onClick, value, size = 'medium', btClass='', isDuration=false }: ButtonProps) {
+  const duration = useContextSelector(AppContext, state => state.duration);
 
   return (
-
     <button className={classNames({
       'button': true,
-      'button--selected': selected,
+      'button--selected': isDuration ? value === duration : selected,
       'button--small': size === 'small',
       'button--large': size === 'large',
       [btClass]: true
@@ -29,4 +32,4 @@ function Button({ text, selected, onClick, value, size = 'medium', btClass='' }:
   )
 }
 
-export default Button
+export default memo(Button)

@@ -1,11 +1,20 @@
 import React, { useContext } from 'react'
 import { useDispatch } from 'react-redux'
-import AppContext from '../../Context/App.context';
+import { useContextSelector } from 'use-context-selector'
+import { AppContext } from '../../Context/App.context'
+
 
 import "./Forms.scss"
 
 function Forms() {
-  const { date, time, duration, setCurrentStep, details, setDetails } = useContext(AppContext);
+
+  const date = useContextSelector(AppContext, state => state.date)
+  const time = useContextSelector(AppContext, state => state.time)
+  const duration = useContextSelector(AppContext, state => state.duration)
+  const setCurrentStep = useContextSelector(AppContext, state => state.setCurrentStep)
+  const details = useContextSelector(AppContext, state => state.details)
+  const setDetails = useContextSelector(AppContext, state => state.setDetails)
+
   const dispatch = useDispatch();
 
   const handleChange = (e: any) => {

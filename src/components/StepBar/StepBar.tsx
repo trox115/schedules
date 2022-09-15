@@ -1,10 +1,12 @@
 import React, { useContext } from 'react'
-import AppContext from '../../Context/App.context';
+import { useContextSelector } from 'use-context-selector';
+import { AppContext } from '../../Context/App.context';
 
 import './StepBar.scss';
 
 function StepBar() {
-  const { currentStep, totalSteps } = useContext(AppContext);
+  const totalSteps = useContextSelector(AppContext, state => state.totalSteps);
+  const currentStep = useContextSelector(AppContext, state => state.currentStep)
 
   return (
         <div className='step-bar'>

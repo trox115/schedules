@@ -8,14 +8,20 @@ import Header from '../../components/Header/Header'
 import Button from '../../components/Button/Button'
 import Resume from '../../components/Resume/Resume'
 import SubTitle from '../../components/SubTitle/SubTitle'
-import AppContext from '../../Context/App.context'
+import { AppContext } from '../../Context/App.context'
 import { RootState } from '../../store'
+import { useContextSelector } from 'use-context-selector';
 
 export default function Schedules() {
-  const { setTime, setCurrentStep, time, date, duration } = useContext(AppContext)
   const [buttons, setButtons] = useState([{ label: '20', value: '0' }]);
   const { availableTimes } = useSelector((state: RootState) => state.content);
   const { schedules } = useSelector((state: RootState) => state.schedules);
+
+  const duration = useContextSelector(AppContext, state => state.duration);
+  const date = useContextSelector(AppContext, state => state.date)
+  const time = useContextSelector(AppContext, state => state.time)
+  const setTime = useContextSelector(AppContext, state => state.setTime);
+  const setCurrentStep = useContextSelector(AppContext, state => state.setCurrentStep)
 
 
   const generateArrayOfTime = (from:string, to:string ) => {
