@@ -47,7 +47,7 @@ export default function Schedules() {
           const meetingStart = new Date(date).setUTCHours(new Date(booked.start).getHours()-1, new Date(booked.start).getMinutes(), 0, 0);
           const meetingEnd = new Date(date).setUTCHours(new Date(booked.end).getHours()-1, new Date(booked.end).getMinutes(), 0, 0);
           const newstart = new Date(date).setUTCHours(i.getHours()-1, i.getMinutes(), 0, 0);
-          console.log(meetingStart, newstart);
+
           const ending = new Date(i.getTime() + multiplier * 60000);
           const newEnd = new Date(date).setUTCHours(ending.getHours()-1, ending.getMinutes(), 0, 0);
           const overlapping = areIntervalsOverlapping({
