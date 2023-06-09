@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { format, isWeekend, parse, areIntervalsOverlapping } from 'date-fns';
 import _ from 'lodash';
@@ -42,7 +42,6 @@ export default function Schedules() {
 
     for (let i = start; i <= end; i = new Date(i.getTime() + multiplier * 60000)) {
       const shouldPushTime = _.some(bookedDates, (booked) => {
-        // const valid = true;
         if (date) {
           const meetingStart = new Date(date).setUTCHours(new Date(booked.start).getHours()-1, new Date(booked.start).getMinutes(), 0, 0);
           const meetingEnd = new Date(date).setUTCHours(new Date(booked.end).getHours()-1, new Date(booked.end).getMinutes(), 0, 0);

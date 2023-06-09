@@ -1,17 +1,12 @@
-import React, { memo, useEffect } from 'react'
+import React, { memo } from 'react'
 
 import Calendar from '../../components/Calendar/Calendar'
 import Header from '../../components/Header/Header'
 import Resume from '../../components/Resume/Resume'
 import SubTitle from '../../components/SubTitle/SubTitle'
-import { AppContext } from '../../Context/App.context'
 import './Date.scss'
 
 function Date() {
-
-  useEffect(() => {
-
-  },[])
   
   return (
     <div className="date">

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { useDispatch } from 'react-redux'
 import { useContextSelector } from 'use-context-selector'
 import { AppContext } from '../../Context/App.context'
