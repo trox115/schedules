@@ -1,4 +1,5 @@
-import React from "react";
+import React, { ReactNode, useState } from "react";
+import { createContext } from 'use-context-selector';
 
 type AppContextProps = {
   page?: number,
@@ -16,20 +17,46 @@ type AppContextProps = {
   setDetails?: Function
 }
 
-const AppContext = React.createContext<Partial<AppContextProps>>({
-  page: 0,
-  setPage: (bool: boolean) => { bool = true },
-  duration: 0,
-  setDuration: () => {},
-  totalSteps: 4,
-  currentStep: 0,
-  setCurrentStep: () => {},
-  date: new Date(),
-  setDate: () => {},
-  time: '',
-  setTime: () => {},
-  details: {},
-  setDetails: () => {}
-})
+export const AppContext = createContext({} as AppContextProps);
 
-export default AppContext;
+interface AppProviderProps {
+  children: ReactNode
+}
+
+export const AppProvider = ({ children }:AppProviderProps) => {
+  const [page, setPage] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [currentStep, setCurrentStep] = useState(0);
+  const [date, setDate] = useState(null);
+  const [time, setTime] = useState('');
+  const [details, setDetails] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  
+  const totalSteps = 4;
+
+  const context = {
+    page,
+    setPage,
+    duration,
+    setDuration,
+    totalSteps,
+    currentStep,
+    setCurrentStep,
+    date,
+    setDate,
+    time,
+    setTime,
+    details,
+    setDetails
+  }
+
+  return(
+    <AppContext.Provider value={ context }>
+      { children }
+    </AppContext.Provider>
+  )
+
+} ;

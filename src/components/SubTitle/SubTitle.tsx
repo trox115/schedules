@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, memo } from 'react';
 import classNames from 'classnames';
 
 import './Subtitle.scss'
@@ -26,4 +26,4 @@ function SubTitle({ sentence, bold='', align='center'} : SubtitleProps) {
     )
 }
 
-export default SubTitle
+export default memo(SubTitle);
