@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useContextSelector } from 'use-context-selector';
 import { AppContext } from '../Context/App.context';
 
@@ -12,6 +12,14 @@ function UsePageStep() {
     setDuration(newDuration);
     setCurrentStep(1)
   },[])
+
+  useEffect(() => {
+    if(page === 1){
+      setCurrentStep(1)
+    } else if(page === 2){
+      setCurrentStep(2)
+    }
+  },[page])
 
   const handlePageChange = useCallback((newPage) => {
     setPage(newPage);

@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react'
-import { useContextSelector } from 'use-context-selector'
+import React, { memo, useEffect } from 'react'
 
 import Calendar from '../../components/Calendar/Calendar'
 import Header from '../../components/Header/Header'
@@ -9,16 +8,11 @@ import { AppContext } from '../../Context/App.context'
 import './Date.scss'
 
 function Date() {
-  const currentStep = useContextSelector(AppContext, state => state.currentStep)
-  const setCurrentStep = useContextSelector(AppContext, state => state.setCurrentStep)
-  const page = useContextSelector(AppContext, state => state.page)
 
   useEffect(() => {
-    if ( page !== 1 && currentStep !== 2) {
-      setCurrentStep(2)
-    }
-  })
 
+  },[])
+  
   return (
     <div className="date">
       <Header />
@@ -29,4 +23,4 @@ function Date() {
   )
 }
 
-export default Date
+export default memo(Date)

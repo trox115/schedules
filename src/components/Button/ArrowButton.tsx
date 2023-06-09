@@ -25,6 +25,8 @@ function ArrowButton({ isNext, onClick }: ArrowButtonProps) {
       return true
     } else if (page === 3) {
       return time.length > 0;
+    } else if( page === 4 && !isNext) {
+      return true;
     }
     return false
   },[duration, page, time.length])
