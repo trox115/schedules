@@ -1,4 +1,5 @@
-import React, { useCallback, useEffect } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useCallback, useEffect } from 'react';
 import { useContextSelector } from 'use-context-selector';
 import { AppContext } from '../Context/App.context';
 
