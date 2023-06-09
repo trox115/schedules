@@ -1,4 +1,5 @@
-import React, { useCallback, useContext } from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useCallback } from 'react'
 
 import './Duration.scss';
 import Button from '../../components/Button/Button'

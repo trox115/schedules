@@ -1,13 +1,11 @@
-import React, { useContext } from 'react';
-
-import logo from '../../logo.svg';
-import './InitialScreen.scss';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import classNames from 'classnames';
 import { useSelector } from 'react-redux';
 
+import logo from '../../logo.svg';
+import './InitialScreen.scss';
 import { RootState } from '../../store';
-
 import UsePageStep from '../../hooks/usePageStep';
 
 

@@ -29,7 +29,7 @@ function ArrowButton({ isNext, onClick }: ArrowButtonProps) {
       return true;
     }
     return false
-  },[duration, page, time.length])
+  },[duration, page, time.length, isNext])
   
   return (
       <button className={ classNames({

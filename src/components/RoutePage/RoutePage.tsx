@@ -1,27 +1,18 @@
-import React, { memo, useCallback } from 'react'
+import React, { memo } from 'react'
 
-import { useDispatch } from 'react-redux';
 import Duration from '../../pages/Duration/Duration';
 import Date from '../../pages/Date/Date';
 import Inputs from '../../pages/Inputs/Inputs';
 import Schedules from '../../pages/Schedules/Schedules';
 import StepBar from '../StepBar/StepBar';
 import ArrowButton from '../Button/ArrowButton';
-import Button from '../Button/Button';
 import InitialScreen from '../InitialScreen/InitialScreen';
-import { AppContext, AppProvider } from '../../Context/App.context';
-import { useContextSelector } from 'use-context-selector';
 import UsePageStep from '../../hooks/usePageStep';
 
 
 
 function RoutePage() {
   const { page, handlePageChange } = UsePageStep();  
-  const submitForm = async () => {
-    console.log()
-    // const response = await dispatch.schedules.postSchedule({ ...details, date, time, duration });
-    // window.location.href = response.url;
-  };
 
   return (
       <>
