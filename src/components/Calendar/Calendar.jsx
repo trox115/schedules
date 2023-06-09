@@ -24,18 +24,17 @@ const Calendar = () => {
 
   const isAvailable = (date) => {
     const today = new Date();
-    const formatedDate = format(date, 'dd/MM/yyyy');
+    const formatedDate = format(date, 'yyyy/MM/dd');
     if(schedules.length === 0){
       return isAfter(date, today);
     }
     const bookedDates = _.filter(schedules, (booked) => {
       const splitedDate = (booked?.date).split('T')
-      return format(new Date(splitedDate), 'dd/MM/yyyy') === formatedDate;
+      return format(new Date(splitedDate[0]), 'yyyy/MM/dd') === formatedDate;
     })
 
     return isAfter(date, today) && bookedDates.length < 3;
   }
-  
   return (
     <DatePicker filterDate={ isAvailable } locale={ pt } selected={startDate} onChange={(date) => setStartDate(date)} inline className="calendar"/>
   );
