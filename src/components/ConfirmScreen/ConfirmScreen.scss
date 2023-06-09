@@ -1,0 +1,65 @@
+@import "../../styles/colors";
+@import "../../styles/variables";
+
+.confirm {
+  height: 100vh;
+  overflow:hidden;
+  position: relative;
+
+  &__logo {
+    display: block;
+    width: calc(100% - 60px);
+    margin: 50% auto;
+  }
+
+  &__shape {
+    min-width: 120%;
+    height: 460px;
+    border-radius: 180%;
+    position: absolute;
+    bottom: -230px;
+    left: -10%;
+    background-image: linear-gradient(to bottom right, $lightGreen, $darkGreen);
+    border: 1px solid $grey;
+    color: white;
+    overflow: hidden;
+
+    &--all-screen {
+      height: 100vh;
+      max-width: 100vw;
+      border-radius: 0;
+      transition: height 1s;
+      left: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      min-width: 100vw;
+    }
+  }
+
+  &__title {
+    display: block;
+    width: 50%;
+    margin: 70px auto 50px auto;
+    text-align: center;
+    font-size: 17px;
+    font-family: $titleFont;
+    font-weight: 100;
+
+    &--centered {
+      font-size: 20px;
+      animation: blinker 2s linear infinite;
+      margin:0 auto;
+    }
+  }
+
+  &__enter {
+    display: block;
+    margin: auto;
+    background: none;
+    border: none;
+    color: white;
+    font-weight: 700;
+    font-family: $titleFont;
+  }
+}

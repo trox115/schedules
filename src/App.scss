@@ -1,0 +1,10 @@
+.App {
+  overflow: scroll;
+  &__pages {
+    min-height: calc(100vh - 200px);
+  }
+
+  &__bottom-container{
+    margin-top: 160px;
+  }
+}

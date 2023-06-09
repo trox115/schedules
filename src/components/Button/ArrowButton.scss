@@ -10,7 +10,7 @@
   border-radius: 16px;
   left: 24px;
   margin-bottom: 5px;
-  
+
   &--next {
     right: 24px;
     left: unset;
@@ -23,5 +23,16 @@
     &--back {
       transform: rotate(180deg);
     }
+  }
+
+  &--hidden {
+    visibility: hidden;
+  }
+}
+
+@media (min-width:900px){
+  .arrow-button{
+    position: absolute;
+    bottom: 4;
   }
 }

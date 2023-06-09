@@ -2,24 +2,27 @@ import React, { useContext } from 'react';
 
 import logo from '../../logo.svg';
 import './InitialScreen.scss';
-import AppContext from '../../Context/App.context';
 import { useDispatch } from 'react-redux';
 import classNames from 'classnames';
 import { useSelector } from 'react-redux';
+
 import { RootState } from '../../store';
 
+import UsePageStep from '../../hooks/usePageStep';
+
+
 function InitialScreen() {
-  const { setPage } = useContext(AppContext);
+  const { handlePageChange } = UsePageStep();
   const dispatch = useDispatch();
   const { loading } = useSelector((state: RootState) => state.content)
 
   const loadContent = async () => {
     await dispatch.content.getContent();
 
-    dispatch.schedules.getSchedules();
+    await dispatch.schedules.getSchedules();
 
-    if (setPage && !loading) {
-      setPage(1);
+    if (!loading) {
+      handlePageChange(1);
     }
   }
 

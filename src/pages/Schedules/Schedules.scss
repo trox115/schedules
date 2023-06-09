@@ -1,6 +1,7 @@
 .schedules{
   width: calc(100% - 30px);
   margin: 0 auto;
+  height: 100%;
 
   &__buttons{
     display: flex;
@@ -8,4 +9,15 @@
     justify-content: center;
     gap: 10px;
   }
+}
+
+@media all and (min-width: 350px){
+  .arrow-button{
+    position: absolute;
+    bottom: 5%;
+  }
+  .step-bar{
+    position: absolute;
+    bottom: 10%;
+}
 }

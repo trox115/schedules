@@ -1,17 +1,20 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import { addDays, isAfter } from "date-fns";
 import { useSelector } from "react-redux";
 import { format } from 'date-fns';
 import _ from 'lodash';
+import pt from 'date-fns/locale/pt';
 
 import "react-datepicker/dist/react-datepicker.css";
 import "./Calendar.scss";
-import pt from 'date-fns/locale/pt';
-import AppContext from "../../Context/App.context";
+import { AppContext } from "../../Context/App.context";
+import { useContextSelector } from "use-context-selector";
 
 const Calendar = () => {
-  const {setDate} = useContext(AppContext)
+
+  const setDate = useContextSelector(AppContext, state => state.setDate)
+
   const [startDate, setStartDate] = useState(addDays(new Date(), 1));
   const { schedules } = useSelector((state) => state.schedules);
 
