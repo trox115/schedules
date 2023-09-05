@@ -54,7 +54,7 @@ function Forms() {
         name='message'
         onChange={handleChange}
       />
-     <Button text="Enviar" selected onClick={ handleSubmit } btClass='button__right create__input__send' />
+     <Button text="Pagar" selected onClick={ handleSubmit } btClass='button__right create__input__send' />
     </form>
   )
 }
